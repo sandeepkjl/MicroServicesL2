@@ -1,0 +1,27 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: moviereviewservice
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: sk6785
+    password: sho987
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    database-plateform: org.hibernate.dialect.Oracle10gDialect
+    hibernate.ddl-auto: update
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+pivotal:
+  movieservicename:
+    name: movieservice
+  movieuserserviceename:
+    name: movieuser
